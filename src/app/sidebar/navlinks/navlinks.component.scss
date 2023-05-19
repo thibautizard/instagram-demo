@@ -1,0 +1,30 @@
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  li {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif;
+    font-size: var(--system-16-font-size);
+    line-height: var(--system-16-line-height);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-left: 15px;
+    line-height: 24px;
+    direction: ltr;
+  }
+
+  li:first-child {
+    font-weight: 700;
+  }
+}

@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { DomSanitizer } from '@angular/platform-browser';
+import { provideRouter } from '@angular/router';
+import { appRoutes } from './app.routes';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { importProvidersFrom } from '@angular/core';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,15 +13,11 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./app.component.scss'],
   standalone: true
 })
-export class AppComponent {
+
+class AppComponent {
   title = 'instagram-demo';
-
-  constructor(private _sanitizer: DomSanitizer) { }
-
-  getSVGImageUrl(image: string) {
-    let base64string = btoa(image);
-    return this._sanitizer.bypassSecurityTrustResourceUrl(
-      `data:image/svg+xml;base64,${base64string}`
-    );
-  }
 }
+
+bootstrapApplication(AppComponent, {
+  providers: [importProvidersFrom(BrowserAnimationsModule), provideRouter(appRoutes)]
+})

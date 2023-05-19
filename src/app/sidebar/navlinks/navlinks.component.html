@@ -1,0 +1,18 @@
+<nav>
+  <ul>
+    <a href="" *ngFor="let navlink of navlinks">
+      <li>
+        <div>
+          <insta-demo-home *ngIf="navlink.icon === 'home'"></insta-demo-home>
+          <insta-demo-search
+            *ngIf="navlink.icon === 'search'"
+          ></insta-demo-search>
+          <insta-demo-create
+            *ngIf="navlink.icon === 'create'"
+          ></insta-demo-create>
+        </div>
+        {{ navlink.label }}
+      </li>
+    </a>
+  </ul>
+</nav>
